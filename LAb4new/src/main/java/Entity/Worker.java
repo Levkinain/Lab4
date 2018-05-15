@@ -25,7 +25,8 @@ public class Worker implements Runnable {
             if (getQueue().size() != 0) {
                 Client client = getQueue().poll();
                 System .out.println("money before operation " + Bank.getBankMoney());
-                System.out.println("Worker " + workerId + " start operation" + "(money:" + client.getClientMoney() + ")");
+                double clientMoney = client.getMoney();
+                System.out.println("Worker " + workerId + " start operation" + "(money:" + clientMoney + ")");
                 try {
                     Thread.sleep(client.getTime());
                 } catch (InterruptedException e) {
@@ -36,7 +37,7 @@ public class Worker implements Runnable {
                 } else {
                     client.setClientMoney(Bank.getMoney(client.getMoney()));
                 }
-                System.out.println("Worker " + workerId + " finished operation " + "(money:" + client.getClientMoney() + ")" + "\n" + "BankAccount :" + Bank.getBankMoney());
+                System.out.println("Worker " + workerId + " finished operation " + "(money:" + clientMoney + ")" + "\n" + "BankAccount :" + Bank.getBankMoney());
             } else {
                 try {
                     Thread.sleep(1000);
