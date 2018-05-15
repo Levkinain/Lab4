@@ -4,7 +4,7 @@ import Entity.Client;
 import java.util.Random;
 
 public class Main {
-    private static final int N = 4;
+    private static final int N = 2;
     private static Random random = new Random();
 
     public static void main(String[] arg) throws InterruptedException {

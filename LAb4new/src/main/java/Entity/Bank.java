@@ -26,6 +26,7 @@ public class Bank {
     public static synchronized double getMoney(double money) {
 
         if ((accountMoney - money) < 0) {
+            System.out.println("not enough money");
             return 0;
         } else {
             accountMoney -= money;

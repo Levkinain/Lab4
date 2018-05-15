@@ -24,6 +24,7 @@ public class Worker implements Runnable {
         while (true) {
             if (getQueue().size() != 0) {
                 Client client = getQueue().poll();
+                System .out.println("money before operation " + Bank.getBankMoney());
                 System.out.println("Worker " + workerId + " start operation" + "(money:" + client.getClientMoney() + ")");
                 try {
                     Thread.sleep(client.getTime());
