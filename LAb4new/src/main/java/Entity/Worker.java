@@ -5,7 +5,6 @@ import java.util.concurrent.PriorityBlockingQueue;
 
 public class Worker implements Runnable {
     private PriorityBlockingQueue<Client> queue = new PriorityBlockingQueue();
-   // private Queue<Entity.Client> queue = new LinkedList<Entity.Client>();
     private int workerId;
 
     public Worker(int id) {
