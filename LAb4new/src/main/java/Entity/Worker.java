@@ -24,7 +24,7 @@ public class Worker implements Runnable {
         while (true) {
             if (getQueue().size() != 0) {
                 Client client = getQueue().poll();
-                System.out.println("Entity.Worker " + workerId + " start money operation with client " + "(Entity.Client money:" + client.getClientMoney() + ")");
+                System.out.println("Worker " + workerId + " start operation" + "(money:" + client.getClientMoney() + ")");
                 try {
                     Thread.sleep(client.getTime());
                 } catch (InterruptedException e) {
@@ -35,7 +35,7 @@ public class Worker implements Runnable {
                 } else {
                     client.setClientMoney(Bank.getMoney(client.getMoney()));
                 }
-                System.out.println("Entity.Worker " + workerId + " finished money operation with client " + "(Entity.Client money:" + client.getClientMoney() + ")" + " and has " + getQueue().size() + " clients in queue. \n" + "BankAccount :" + Bank.getBankMoney());
+                System.out.println("Worker " + workerId + " finished operation " + "(money:" + client.getClientMoney() + ")" + "\n" + "BankAccount :" + Bank.getBankMoney());
             } else {
                 try {
                     Thread.sleep(1000);
