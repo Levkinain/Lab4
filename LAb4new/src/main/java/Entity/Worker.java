@@ -1,10 +1,11 @@
-import java.util.LinkedList;
+package Entity;
+
 import java.util.Queue;
 import java.util.concurrent.PriorityBlockingQueue;
 
 public class Worker implements Runnable {
     private PriorityBlockingQueue<Client> queue = new PriorityBlockingQueue();
-   // private Queue<Client> queue = new LinkedList<Client>();
+   // private Queue<Entity.Client> queue = new LinkedList<Entity.Client>();
     private int workerId;
 
     public Worker(int id) {
@@ -24,7 +25,7 @@ public class Worker implements Runnable {
         while (true) {
             if (getQueue().size() != 0) {
                 Client client = getQueue().poll();
-                System.out.println("Worker " + workerId + " start money operation with client " + "(Client money:" + client.getClientMoney() + ")");
+                System.out.println("Entity.Worker " + workerId + " start money operation with client " + "(Entity.Client money:" + client.getClientMoney() + ")");
                 try {
                     Thread.sleep(client.getTime());
                 } catch (InterruptedException e) {
@@ -35,7 +36,7 @@ public class Worker implements Runnable {
                 } else {
                     client.setClientMoney(Bank.getMoney(client.getMoney()));
                 }
-                System.out.println("Worker " + workerId + " finished money operation with client " + "(Client money:" + client.getClientMoney() + ")" + " and has " + getQueue().size() + " clients in queue. \n" + "BankAccount :" + Bank.getBankMoney());
+                System.out.println("Entity.Worker " + workerId + " finished money operation with client " + "(Entity.Client money:" + client.getClientMoney() + ")" + " and has " + getQueue().size() + " clients in queue. \n" + "BankAccount :" + Bank.getBankMoney());
             } else {
                 try {
                     Thread.sleep(1000);

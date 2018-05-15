@@ -1,3 +1,6 @@
+import Entity.Bank;
+import Entity.Client;
+
 import java.util.Random;
 
 public class Main {

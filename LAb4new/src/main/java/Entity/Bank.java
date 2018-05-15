@@ -1,3 +1,5 @@
+package Entity;
+
 public class Bank {
     private static volatile double accountMoney = 1000;
     private Thread workerPool[];

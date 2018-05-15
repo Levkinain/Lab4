@@ -1,3 +1,5 @@
+package Entity;
+
 public class Client implements Comparable<Client> {
     private double moneyAmount;
     private double clientMoney;
